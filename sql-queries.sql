@@ -160,3 +160,38 @@ SELECT *
 FROM students
 WHERE admitted_at BETWEEN '2015-09-01' AND '2017-09-01'
 	AND age NOT IN (23, 24);
+    
+UPDATE students
+SET grade = NULL
+WHERE grade = 0.0;
+
+SELECT * 
+FROM students
+WHERE age IS NULL;
+
+SELECT * 
+FROM students
+WHERE grade IS NULL;
+
+SELECT *
+FROM students
+WHERE age IS NOT NULL;
+
+SELECT *
+FROM students 
+WHERE grade IS NOT NULL;
+
+SELECT *,
+CASE
+	WHEN age >= 26 THEN 'Upper Age Class'
+    WHEN age BETWEEN 23 AND 25 THEN 'Middle Age Class'
+    WHEN age < 23 THEN 'Lower Age Class'
+END
+FROM students;
+
+SELECT *,
+CASE grade
+	WHEN 4.0 THEN 'Best Student'
+    ELSE 'Normal'
+END AS award
+FROM students;
