@@ -195,3 +195,10 @@ CASE grade
     ELSE 'Normal'
 END AS award
 FROM students;
+
+SELECT NOW();
+
+SELECT CURDATE();
+
+SELECT TIME(NOW());
+
