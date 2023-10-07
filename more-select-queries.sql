@@ -72,3 +72,27 @@ INSERT INTO pupils
 	VALUE(2, 'Oyinkan Blue');
 
 SELECT * FROM pupils;
+
+SELECT AVG(age) FROM students;
+
+SELECT *
+FROM students
+WHERE age > (
+	SELECT AVG(age)
+    FROM students);
+    
+SELECT *
+FROM students
+WHERE age < (
+	SELECT AVG(age)
+    FROM students);
+    
+
+SELECT COUNT(*) total_num, department
+		FROM students
+		GROUP BY department;
+
+SELECT AVG(total_num) mean, MAX(total_num) max, MIN(total_num) min
+FROM	(SELECT COUNT(*) total_num, department
+		FROM students
+		GROUP BY department) AS sub;
